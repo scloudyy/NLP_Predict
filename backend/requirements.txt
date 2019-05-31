@@ -1,0 +1,6 @@
+Django
+django-cors-headers
+django-crispy-forms
+django-filter
+djangorestframework
+djangorestframework-filters
