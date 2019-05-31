@@ -16,6 +16,8 @@ class SentimentViewset(viewsets.GenericViewSet):
 
         text_input = serializer.validated_data['text']
 
+        ## TODO
+
         res = dict()
 
         res['res'] = True

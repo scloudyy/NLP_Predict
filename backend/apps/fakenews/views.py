@@ -17,6 +17,8 @@ class FakenewsViewset(viewsets.GenericViewSet):
         title = serializer.validated_data['title']
         text = serializer.validated_data['text']
 
+        ## TODO
+
         res = dict()
 
         res['res'] = True
