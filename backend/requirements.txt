@@ -4,3 +4,4 @@ django-crispy-forms
 django-filter
 djangorestframework
 djangorestframework-filters
+rpyc==4.1.0
