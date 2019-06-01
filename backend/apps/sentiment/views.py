@@ -17,18 +17,21 @@ class SentimentViewset(viewsets.GenericViewSet):
         text_input = serializer.validated_data['text']
 
         ## TODO
+        
+        conn = rpyc.connect('cse256.fduo.me',8080)
+        res  = conn.root.exposed_task1(text_input)
+        
+#         res = dict()
 
-        res = dict()
+#         res['res'] = True
 
-        res['res'] = True
+#         res['resProb'] = 87.89
 
-        res['resProb'] = 87.89
+#         res['explain'] = "The input is: " + text_input + ". Waiting for Fuo Duo and Cheng Qian."
 
-        res['explain'] = "The input is: " + text_input + ". Waiting for Fuo Duo and Cheng Qian."
-
-        res['wordRatio'] = [{'label': 'Good', 'data': [90, 10]},
-                            {'label': 'Great', 'data': [78, 22]},
-                            {'label': 'OK', 'data': [70, 30]},
-                            {'label': 'Thank', 'data': [60, 40]}]
+#         res['wordRatio'] = [{'label': 'Good', 'data': [90, 10]},
+#                             {'label': 'Great', 'data': [78, 22]},
+#                             {'label': 'OK', 'data': [70, 30]},
+#                             {'label': 'Thank', 'data': [60, 40]}]
 
         return Response({'res': res}, status=status.HTTP_200_OK)
