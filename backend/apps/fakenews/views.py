@@ -19,7 +19,18 @@ class FakenewsViewset(viewsets.GenericViewSet):
         text  = serializer.validated_data['text']
 
         conn = rpyc.connect('cse256.fduo.me',8080)
-        res  = conn.root.exposed_task2(title,text) 
+        res  = conn.root.exposed_task2(title,text)
+        
+        res['similarity'] *= 100
+        res['labelProb']  *= 100
+        if 'title' in res:
+            res['title']['neg'] *= 100
+            res['title']['neu'] *= 100
+            res['title']['pos'] *= 100
+        if 'content' in res:
+            res['content']['neg'] *= 100
+            res['content']['neu'] *= 100
+            res['content']['pos'] *= 100
 
 #         res['res'] = True
 
